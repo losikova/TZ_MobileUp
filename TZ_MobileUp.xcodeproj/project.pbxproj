@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B28B0BD827EF610E00B3830B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28B0BD727EF610E00B3830B /* LoginView.swift */; };
 		B2A8C61527EE388400EA675D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A8C61427EE388400EA675D /* AppDelegate.swift */; };
 		B2A8C61727EE388400EA675D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A8C61627EE388400EA675D /* SceneDelegate.swift */; };
 		B2A8C61F27EE388400EA675D /* TZ_MobileUp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2A8C61D27EE388400EA675D /* TZ_MobileUp.xcdatamodeld */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B28B0BD727EF610E00B3830B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B2A8C61127EE388400EA675D /* TZ_MobileUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TZ_MobileUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2A8C61427EE388400EA675D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2A8C61627EE388400EA675D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B28B0BD627EF60FA00B3830B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B2A8C62B27EE399300EA675D /* LoginViewController.swift */,
+				B28B0BD727EF610E00B3830B /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		B2A8C60827EE388400EA675D = {
 			isa = PBXGroup;
 			children = (
@@ -56,9 +67,9 @@
 		B2A8C61327EE388400EA675D /* TZ_MobileUp */ = {
 			isa = PBXGroup;
 			children = (
+				B28B0BD627EF60FA00B3830B /* Login */,
 				B2A8C61427EE388400EA675D /* AppDelegate.swift */,
 				B2A8C61627EE388400EA675D /* SceneDelegate.swift */,
-				B2A8C62B27EE399300EA675D /* LoginViewController.swift */,
 				B2A8C62027EE388700EA675D /* Assets.xcassets */,
 				B2A8C62227EE388700EA675D /* LaunchScreen.storyboard */,
 				B2A8C62527EE388700EA675D /* Info.plist */,
@@ -140,6 +151,7 @@
 				B2A8C61527EE388400EA675D /* AppDelegate.swift in Sources */,
 				B2A8C61F27EE388400EA675D /* TZ_MobileUp.xcdatamodeld in Sources */,
 				B2A8C62C27EE399300EA675D /* LoginViewController.swift in Sources */,
+				B28B0BD827EF610E00B3830B /* LoginView.swift in Sources */,
 				B2A8C61727EE388400EA675D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,10 +298,10 @@
 				INFOPLIST_FILE = TZ_MobileUp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +327,6 @@
 				INFOPLIST_FILE = TZ_MobileUp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
