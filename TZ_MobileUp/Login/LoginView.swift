@@ -7,19 +7,26 @@
 
 import UIKit
 
+protocol OpenWebViewProtocol: AnyObject {
+    func openWebView(_ controller: WebViewController)
+}
+
 class LoginView: UIView {
     
-    /// - parameter label: LoginView: Mobile Up Gallary Label
+    /// - parameter label: Mobile Up Gallary Label
     private let label = UILabel()
     
-    /// - parameter buttonView: LoginView: Login Button View
+    /// - parameter buttonView: Login Button View
     private let buttonView = UIView()
     
-    /// - parameter loginButton: LoginView: Login Button
+    /// - parameter loginButton: Login Button
     private let loginButton = UIButton()
     
-    /// - parameter buttonTitle: LoginView: Login Button Title
+    /// - parameter buttonTitle: Login Button Title
     private let buttonTitle = UILabel()
+    
+    /// - parameter delegate: Delegate for Login Button
+    var delegate: OpenWebViewProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,6 +39,7 @@ class LoginView: UIView {
     }
     
     private func setupUI() {
+        
         
         /// Mobile Up Label
         addSubview(label)
@@ -73,6 +81,7 @@ class LoginView: UIView {
         ])
         loginButton.layer.cornerRadius = 8
         loginButton.layer.backgroundColor = UIColor(red: 0.071, green: 0.071, blue: 0.071, alpha: 1).cgColor
+        loginButton.addTarget(self, action: #selector(loginButtonPressed(_:)), for: .touchUpInside)
         
         /// Login Button Title
         loginButton.addSubview(buttonTitle)
@@ -86,7 +95,12 @@ class LoginView: UIView {
         buttonTitle.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
         buttonTitle.font = UIFont(name: "SFProDisplay-Medium", size: 18)
         buttonTitle.textAlignment = .center
-        
+    }
+    
+    /// - parameter loginButtonPressed: Open Web View
+    @objc func loginButtonPressed(_ sender: UIButton) {
+        let webViewViewController = WebViewController()
+        self.delegate?.openWebView(webViewViewController)
     }
     
 }
