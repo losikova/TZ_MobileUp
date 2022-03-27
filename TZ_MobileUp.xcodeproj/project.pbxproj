@@ -26,6 +26,8 @@
 		B2D555F527F06D3A00D00E68 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D555F427F06D3A00D00E68 /* PhotoService.swift */; };
 		B2D5560027F07B6D00D00E68 /* UserInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D555FA27F07B6D00D00E68 /* UserInfo+CoreDataClass.swift */; };
 		B2D5560127F07B6D00D00E68 /* UserInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D555FB27F07B6D00D00E68 /* UserInfo+CoreDataProperties.swift */; };
+		B2D5560927F09CFF00D00E68 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D5560727F09CFF00D00E68 /* PhotoViewController.swift */; };
+		B2D5560A27F09CFF00D00E68 /* PhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D5560827F09CFF00D00E68 /* PhotoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		B2D555F427F06D3A00D00E68 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
 		B2D555FA27F07B6D00D00E68 /* UserInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B2D555FB27F07B6D00D00E68 /* UserInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B2D5560727F09CFF00D00E68 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		B2D5560827F09CFF00D00E68 /* PhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,13 +95,14 @@
 		B2A8C61327EE388400EA675D /* TZ_MobileUp */ = {
 			isa = PBXGroup;
 			children = (
+				B2D555E027EF994600D00E68 /* Constants.swift */,
 				B2D555F327F063E000D00E68 /* Service */,
 				B2D555F027F05BE100D00E68 /* Storage */,
-				B2D555E027EF994600D00E68 /* Constants.swift */,
 				B2D555D827EF8FF100D00E68 /* WebView */,
 				B2D555D327EF8E1800D00E68 /* Fonts */,
 				B28B0BD627EF60FA00B3830B /* Login */,
 				B2D555E227EF9D2D00D00E68 /* Gallary */,
+				B2D5560227F099A700D00E68 /* Photo Viewing */,
 				B2A8C61427EE388400EA675D /* AppDelegate.swift */,
 				B2A8C62027EE388700EA675D /* Assets.xcassets */,
 				B2A8C62227EE388700EA675D /* LaunchScreen.storyboard */,
@@ -151,6 +156,15 @@
 				B2D555F427F06D3A00D00E68 /* PhotoService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		B2D5560227F099A700D00E68 /* Photo Viewing */ = {
+			isa = PBXGroup;
+			children = (
+				B2D5560727F09CFF00D00E68 /* PhotoViewController.swift */,
+				B2D5560827F09CFF00D00E68 /* PhotoViewController.xib */,
+			);
+			path = "Photo Viewing";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +234,7 @@
 				B2D555D627EF8EFA00D00E68 /* SF-Pro-Display-Medium.otf in Resources */,
 				B2A8C62427EE388700EA675D /* LaunchScreen.storyboard in Resources */,
 				B2D555E827EFD21000D00E68 /* SF-Pro-Display-Semibold.otf in Resources */,
+				B2D5560A27F09CFF00D00E68 /* PhotoViewController.xib in Resources */,
 				B2D555D727EF8EFD00D00E68 /* SF-Pro-Display-Bold.otf in Resources */,
 				B2A8C62127EE388700EA675D /* Assets.xcassets in Resources */,
 			);
@@ -243,6 +258,7 @@
 				B28B0BD827EF610E00B3830B /* LoginView.swift in Sources */,
 				B2D555F227F0638400D00E68 /* Service.swift in Sources */,
 				B2D555DC27EF911200D00E68 /* WebView+WKNavigationDelegate.swift in Sources */,
+				B2D5560927F09CFF00D00E68 /* PhotoViewController.swift in Sources */,
 				B2D555E427EF9DBD00D00E68 /* GalleryViewController.swift in Sources */,
 				B2D555E127EF994600D00E68 /* Constants.swift in Sources */,
 			);

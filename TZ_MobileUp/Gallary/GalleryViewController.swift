@@ -21,7 +21,6 @@ class GalleryViewController: UIViewController {
     let galleryCollectionView: UICollectionView = {
         let size = (UIScreen.main.bounds.width - 2) / 2
         let layout = UICollectionViewFlowLayout()
-//        layout.sectionInset = UIEdgeInsets(top: 5, left: 3, bottom: 5, right: 3)
         layout.itemSize = CGSize(width: size, height: size)
         layout.minimumLineSpacing = 2
         layout.minimumInteritemSpacing = 2
@@ -37,14 +36,6 @@ class GalleryViewController: UIViewController {
         self.service.getPhotos { [weak self] getPhotos in
             for photo in getPhotos {
                 self?.photosArray.append(photo)
-//                for photoSize in photo.sizes where photoSize.type == "r" {
-//                    let url = URL(string: photoSize.url)!
-//                    let imageData = try? Data(contentsOf: url)
-//                    let onePhoto = UIImage(data: imageData!)
-//
-//                    self?.photos.append(onePhoto!)
-                    
-//                }
             }
             self?.galleryCollectionView.reloadData()
         }
@@ -53,13 +44,6 @@ class GalleryViewController: UIViewController {
         
         galleryCollectionView.delegate = self
         galleryCollectionView.dataSource = self
-        
-//        var photo = UIImage(named: "meryl")
-//        photos.append(photo!)
-//        photo = UIImage(named: "lana")
-//        photos.append(photo!)
-        
-//        DispatchQueue.main.async {
         setupUI()
     }
     
@@ -136,6 +120,16 @@ extension GalleryViewController: UICollectionViewDelegate, UICollectionViewDataS
             cell.photoImageView.image = photos[photoSize.url]
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photoViewController = PhotoViewController()
+        photoViewController.photos = photosArray
+        photoViewController.selectedIndex = indexPath
+        
+        navigationItem.backButtonTitle = ""
+        navigationController?.navigationBar.tintColor = UIColor(red: 0.071, green: 0.071, blue: 0.071, alpha: 1)
+        navigationController?.pushViewController(photoViewController, animated: true)
     }
     
 }
