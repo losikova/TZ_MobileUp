@@ -11,36 +11,45 @@ import SwiftKeychainWrapper
 
 extension WebViewController: WKNavigationDelegate {
     
-    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
-        guard let url = navigationResponse.response.url, url.path == "/blank.html", let fragment = url.fragment else {
-            decisionHandler(.allow)
-            return
-        }
-        
-        let params = fragment
-            .components(separatedBy: "&")
-            .map{ $0.components(separatedBy: "=") }
-            .reduce([String: String]()) { result, param in
-                var dict = result
-                let key = param[0]
-                let value = param[1]
-                dict[key] = value
-                return dict
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        if let fragment = webView.url?.fragment {
+            let params = fragment
+                .components(separatedBy: "&")
+                .map{ $0.components(separatedBy: "=") }
+                .reduce([String: String]()) { result, param in
+                    var dict = result
+                    let key = param[0]
+                    let value = param[1]
+                    dict[key] = value
+                    return dict
+                }
+            
+            guard let token = params["access_token"]
+//                  let userID = params["user_id"]
+//                  let expireDate = Double(params["expires_in"] ?? "")
+            else {
+                //error
+                return
             }
-        
-        guard let token = params["access_token"] else { return }
-        
-        KeychainWrapper.standard.set(token, forKey: StringKeys.accessToken.rawValue)
-    
-        decisionHandler(.cancel)
-//        
-//        let tabBarController = TabBarViewController()
-//        tabBarController.modalPresentationStyle = .fullScreen
-//        present(tabBarController, animated: true, completion: nil)
+            
+            print(token)
+            
+            KeychainWrapper.standard.set(token, forKey: StringKeys.accessToken.rawValue)
+
+//            let userInfo = UserInfo()
+//            userInfo.id = userID
+//            userInfo.tokenExpire = Date().timeIntervalSince1970 + expireDate
+//            print(userInfo)
+//
+            UserDefaults.standard.set(true, forKey: StringKeys.isAuthorized.rawValue)
+        }
+
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         let message: String = error.localizedDescription
+
+        if message == "Frame load interrupted" { return }
         
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default) {[weak self] action in

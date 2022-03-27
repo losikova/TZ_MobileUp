@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B28B0BD827EF610E00B3830B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28B0BD727EF610E00B3830B /* LoginView.swift */; };
 		B2A8C61527EE388400EA675D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A8C61427EE388400EA675D /* AppDelegate.swift */; };
-		B2A8C61727EE388400EA675D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A8C61627EE388400EA675D /* SceneDelegate.swift */; };
 		B2A8C61F27EE388400EA675D /* TZ_MobileUp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B2A8C61D27EE388400EA675D /* TZ_MobileUp.xcdatamodeld */; };
 		B2A8C62127EE388700EA675D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2A8C62027EE388700EA675D /* Assets.xcassets */; };
 		B2A8C62427EE388700EA675D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2A8C62227EE388700EA675D /* LaunchScreen.storyboard */; };
@@ -21,13 +20,18 @@
 		B2D555DF27EF98E800D00E68 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = B2D555DE27EF98E800D00E68 /* SwiftKeychainWrapper */; };
 		B2D555E127EF994600D00E68 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D555E027EF994600D00E68 /* Constants.swift */; };
 		B2D555E427EF9DBD00D00E68 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D555E327EF9DBC00D00E68 /* GalleryViewController.swift */; };
+		B2D555E627EFC26900D00E68 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D555E527EFC26900D00E68 /* GalleryCollectionViewCell.swift */; };
+		B2D555E827EFD21000D00E68 /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B2D555E727EFD21000D00E68 /* SF-Pro-Display-Semibold.otf */; };
+		B2D555F227F0638400D00E68 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D555F127F0638400D00E68 /* Service.swift */; };
+		B2D555F527F06D3A00D00E68 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D555F427F06D3A00D00E68 /* PhotoService.swift */; };
+		B2D5560027F07B6D00D00E68 /* UserInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D555FA27F07B6D00D00E68 /* UserInfo+CoreDataClass.swift */; };
+		B2D5560127F07B6D00D00E68 /* UserInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D555FB27F07B6D00D00E68 /* UserInfo+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B28B0BD727EF610E00B3830B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B2A8C61127EE388400EA675D /* TZ_MobileUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TZ_MobileUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2A8C61427EE388400EA675D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B2A8C61627EE388400EA675D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B2A8C61E27EE388400EA675D /* TZ_MobileUp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TZ_MobileUp.xcdatamodel; sourceTree = "<group>"; };
 		B2A8C62027EE388700EA675D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2A8C62327EE388700EA675D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -39,6 +43,12 @@
 		B2D555DB27EF911100D00E68 /* WebView+WKNavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebView+WKNavigationDelegate.swift"; sourceTree = "<group>"; };
 		B2D555E027EF994600D00E68 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B2D555E327EF9DBC00D00E68 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		B2D555E527EFC26900D00E68 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		B2D555E727EFD21000D00E68 /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Display-Semibold.otf"; path = "../../../Fonts/SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
+		B2D555F127F0638400D00E68 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		B2D555F427F06D3A00D00E68 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
+		B2D555FA27F07B6D00D00E68 /* UserInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B2D555FB27F07B6D00D00E68 /* UserInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,17 +91,17 @@
 		B2A8C61327EE388400EA675D /* TZ_MobileUp */ = {
 			isa = PBXGroup;
 			children = (
+				B2D555F327F063E000D00E68 /* Service */,
+				B2D555F027F05BE100D00E68 /* Storage */,
 				B2D555E027EF994600D00E68 /* Constants.swift */,
 				B2D555D827EF8FF100D00E68 /* WebView */,
 				B2D555D327EF8E1800D00E68 /* Fonts */,
 				B28B0BD627EF60FA00B3830B /* Login */,
 				B2D555E227EF9D2D00D00E68 /* Gallary */,
 				B2A8C61427EE388400EA675D /* AppDelegate.swift */,
-				B2A8C61627EE388400EA675D /* SceneDelegate.swift */,
 				B2A8C62027EE388700EA675D /* Assets.xcassets */,
 				B2A8C62227EE388700EA675D /* LaunchScreen.storyboard */,
 				B2A8C62527EE388700EA675D /* Info.plist */,
-				B2A8C61D27EE388400EA675D /* TZ_MobileUp.xcdatamodeld */,
 			);
 			path = TZ_MobileUp;
 			sourceTree = "<group>";
@@ -101,6 +111,7 @@
 			children = (
 				B2D555D527EF8E4100D00E68 /* SF-Pro-Display-Bold.otf */,
 				B2D555D427EF8E3200D00E68 /* SF-Pro-Display-Medium.otf */,
+				B2D555E727EFD21000D00E68 /* SF-Pro-Display-Semibold.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -118,8 +129,28 @@
 			isa = PBXGroup;
 			children = (
 				B2D555E327EF9DBC00D00E68 /* GalleryViewController.swift */,
+				B2D555E527EFC26900D00E68 /* GalleryCollectionViewCell.swift */,
 			);
 			path = Gallary;
+			sourceTree = "<group>";
+		};
+		B2D555F027F05BE100D00E68 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				B2A8C61D27EE388400EA675D /* TZ_MobileUp.xcdatamodeld */,
+				B2D555FA27F07B6D00D00E68 /* UserInfo+CoreDataClass.swift */,
+				B2D555FB27F07B6D00D00E68 /* UserInfo+CoreDataProperties.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		B2D555F327F063E000D00E68 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B2D555F127F0638400D00E68 /* Service.swift */,
+				B2D555F427F06D3A00D00E68 /* PhotoService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +219,7 @@
 			files = (
 				B2D555D627EF8EFA00D00E68 /* SF-Pro-Display-Medium.otf in Resources */,
 				B2A8C62427EE388700EA675D /* LaunchScreen.storyboard in Resources */,
+				B2D555E827EFD21000D00E68 /* SF-Pro-Display-Semibold.otf in Resources */,
 				B2D555D727EF8EFD00D00E68 /* SF-Pro-Display-Bold.otf in Resources */,
 				B2A8C62127EE388700EA675D /* Assets.xcassets in Resources */,
 			);
@@ -201,13 +233,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2A8C61527EE388400EA675D /* AppDelegate.swift in Sources */,
+				B2D555E627EFC26900D00E68 /* GalleryCollectionViewCell.swift in Sources */,
 				B2D555DA27EF902300D00E68 /* WebViewController.swift in Sources */,
 				B2A8C61F27EE388400EA675D /* TZ_MobileUp.xcdatamodeld in Sources */,
+				B2D5560027F07B6D00D00E68 /* UserInfo+CoreDataClass.swift in Sources */,
 				B2A8C62C27EE399300EA675D /* LoginViewController.swift in Sources */,
+				B2D555F527F06D3A00D00E68 /* PhotoService.swift in Sources */,
+				B2D5560127F07B6D00D00E68 /* UserInfo+CoreDataProperties.swift in Sources */,
 				B28B0BD827EF610E00B3830B /* LoginView.swift in Sources */,
+				B2D555F227F0638400D00E68 /* Service.swift in Sources */,
 				B2D555DC27EF911200D00E68 /* WebView+WKNavigationDelegate.swift in Sources */,
 				B2D555E427EF9DBD00D00E68 /* GalleryViewController.swift in Sources */,
-				B2A8C61727EE388400EA675D /* SceneDelegate.swift in Sources */,
 				B2D555E127EF994600D00E68 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +394,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -367,7 +404,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -386,6 +423,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -395,7 +433,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
             loginView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         loginView.clipsToBounds = true
-        loginView.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
+        loginView.backgroundColor = .white
     }
 }
 
@@ -44,6 +44,20 @@ extension LoginViewController: OpenWebViewProtocol {
 }
 
 extension LoginViewController: WebViewControllerClosedProtocol {
+    func webViewDidDisapper(withAuth: Bool) {
+        if withAuth {
+            openGallery()
+        } else {
+            presentAlert()
+        }
+    }
+    
+    func openGallery() {
+        let navigationController = UINavigationController(rootViewController: GalleryViewController())
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true, completion: nil)
+    }
+    
     func presentAlert() {
         let alert = UIAlertController(title: "Warning", message: "Вы вышли из авторизации VK", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))

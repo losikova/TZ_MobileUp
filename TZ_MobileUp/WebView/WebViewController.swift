@@ -9,7 +9,7 @@ import UIKit
 import WebKit
 
 protocol WebViewControllerClosedProtocol: AnyObject {
-    func presentAlert()
+    func webViewDidDisapper(withAuth: Bool)
 }
 
 class WebViewController: UIViewController {
@@ -25,9 +25,11 @@ class WebViewController: UIViewController {
         setupWeb()
     }
     
+    var isAuthorized = false
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        self.delegate?.presentAlert()
+        self.delegate?.webViewDidDisapper(withAuth: isAuthorized)
     }
 
     private func setupUI() {
@@ -52,12 +54,18 @@ class WebViewController: UIViewController {
             URLQueryItem(name: "client_id", value: "8089981"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
-            URLQueryItem(name: "scope", value: "262150"),
+            URLQueryItem(name: "scope", value: "wall"),
             URLQueryItem(name: "response_type", value: "token"),
+            URLQueryItem(name: "revoke", value: "1"),
             URLQueryItem(name: "v", value: "5.131")
         ]
         
-        let request = URLRequest(url: urlComponents.url!)
+        guard let url = urlComponents.url else {
+            //error
+            return
+        }
+        
+        let request = URLRequest(url: url)
         
         webView.load(request)
     }

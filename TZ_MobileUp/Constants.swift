@@ -9,4 +9,5 @@ import UIKit
 
 public enum StringKeys: String {
     case accessToken = "accessToken"
+    case isAuthorized = "isAuthorized"
 }
