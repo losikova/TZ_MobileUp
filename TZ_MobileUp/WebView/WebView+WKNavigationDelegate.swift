@@ -42,15 +42,16 @@ extension WebViewController: WKNavigationDelegate {
 //            print(userInfo)
 //
             UserDefaults.standard.set(true, forKey: StringKeys.isAuthorized.rawValue)
+            
+            let navigationController = UINavigationController(rootViewController: GalleryViewController())
+            navigationController.modalPresentationStyle = .fullScreen
+            present(navigationController, animated: false, completion: nil)
         }
 
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         let message: String = error.localizedDescription
-
-//        if message == "Frame load interrupted" { return }
-        
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default) {[weak self] action in
             self?.dismiss(animated: true)

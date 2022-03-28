@@ -8,14 +8,8 @@
 import UIKit
 import WebKit
 
-protocol WebViewControllerClosedProtocol: AnyObject {
-    func webViewDidDisapper(withAuth: Bool)
-}
-
 class WebViewController: UIViewController {
-    
-    /// - parameter delegate: Delegate for closing popover
-    var delegate: WebViewControllerClosedProtocol?
+
     private let webView = WKWebView()
     
     override func viewDidLoad() {
@@ -24,13 +18,6 @@ class WebViewController: UIViewController {
         isModalInPresentation = true
         setupUI()
         setupWeb()
-    }
-    
-    var isAuthorized = false
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        self.delegate?.webViewDidDisapper(withAuth: isAuthorized)
     }
 
     private func setupUI() {
@@ -73,11 +60,11 @@ class WebViewController: UIViewController {
 
 extension WebViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
-        let alert = UIAlertController(title: "", message: "Хотите выйти из авторизации через VK?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Да", style: .default) { _ in
+        let alert = UIAlertController(title: "", message: "Выйти из авторизации через VK?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Выйти", style: .destructive) { _ in
             self.dismiss(animated: true)
         })
-        alert.addAction(UIAlertAction(title: "Отмена", style: .destructive))
+        alert.addAction(UIAlertAction(title: "Отмена", style: .default))
         self.present(alert, animated: true)
     }
 }

@@ -38,24 +38,8 @@ extension LoginViewController: OpenWebViewProtocol {
         let controller = WebViewController()
         controller.modalPresentationStyle = .popover
         controller.presentationController?.delegate = controller
-        controller.delegate = self
         
         present(controller, animated: true)
     }
 }
-
-extension LoginViewController: WebViewControllerClosedProtocol {
-    func webViewDidDisapper(withAuth: Bool) {
-        if withAuth {
-            openGallery()
-        } 
-    }
-    
-    func openGallery() {
-        let navigationController = UINavigationController(rootViewController: GalleryViewController())
-        navigationController.modalPresentationStyle = .fullScreen
-        present(navigationController, animated: true, completion: nil)
-    }
-}
-
 

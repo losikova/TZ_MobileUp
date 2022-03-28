@@ -87,10 +87,10 @@ class GalleryViewController: UIViewController {
             KeychainWrapper.standard.removeObject(forKey: StringKeys.accessToken.rawValue)
             UserDefaults.standard.set(false, forKey: StringKeys.isAuthorized.rawValue)
             
-            self?.dismiss(animated: true)
             let appDelegate = UIApplication.shared.delegate as? AppDelegate
             appDelegate?.isAithorized = false
-
+            
+            self?.dismiss(animated: false)
         })
         
         alert.addAction(UIAlertAction(title: "Отмена", style: .destructive))
