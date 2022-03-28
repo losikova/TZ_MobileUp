@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import SwiftKeychainWrapper
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var isAithorized = false {
         didSet {
             guard let window = window else { return }
-            if UserDefaults.standard.bool(forKey: StringKeys.isAuthorized.rawValue) {
+            if UserDefaults.standard.bool(forKey: StringKeys.isAuthorized.rawValue) &&
+                UserDefaults.standard.double(forKey: StringKeys.tokenExpireDate.rawValue) > Date().timeIntervalSince1970
+            {
                 window.rootViewController = UINavigationController(rootViewController: GalleryViewController())
             } else {
                 window.rootViewController = LoginViewController()
@@ -36,32 +39,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
-
-    // MARK: - Core Data stack
-
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "TZ_MobileUp")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        return container
-    }()
-
-    // MARK: - Core Data Saving support
-
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
-
 }
 

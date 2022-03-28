@@ -24,23 +24,20 @@ extension WebViewController: WKNavigationDelegate {
                     return dict
                 }
             
-            guard let token = params["access_token"]
-//                  let userID = params["user_id"]
-//                  let expireDate = Double(params["expires_in"] ?? "")
+            guard let token = params["access_token"],
+                  let userID = params["user_id"],
+                  let string = params["expires_in"],
+                  var expireDate = Double(string)
             else {
                 //error
                 return
             }
             
-            print(token)
+            expireDate += Date().timeIntervalSince1970
             
             KeychainWrapper.standard.set(token, forKey: StringKeys.accessToken.rawValue)
-
-//            let userInfo = UserInfo()
-//            userInfo.id = userID
-//            userInfo.tokenExpire = Date().timeIntervalSince1970 + expireDate
-//            print(userInfo)
-//
+            UserDefaults.standard.set(userID, forKey: StringKeys.userID.rawValue)
+            UserDefaults.standard.set(expireDate, forKey: StringKeys.tokenExpireDate.rawValue)
             UserDefaults.standard.set(true, forKey: StringKeys.isAuthorized.rawValue)
             
             let navigationController = UINavigationController(rootViewController: GalleryViewController())

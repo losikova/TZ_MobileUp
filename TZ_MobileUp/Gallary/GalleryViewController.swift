@@ -93,7 +93,7 @@ class GalleryViewController: UIViewController {
             self?.dismiss(animated: false)
         })
         
-        alert.addAction(UIAlertAction(title: "Отмена", style: .destructive))
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel))
         self.present(alert, animated: true)
     }
 }
