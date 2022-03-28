@@ -21,6 +21,7 @@ class WebViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        isModalInPresentation = true
         setupUI()
         setupWeb()
     }
@@ -66,7 +67,17 @@ class WebViewController: UIViewController {
         }
         
         let request = URLRequest(url: url)
-        
         webView.load(request)
+    }
+}
+
+extension WebViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+        let alert = UIAlertController(title: "", message: "Хотите выйти из авторизации через VK?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Да", style: .default) { _ in
+            self.dismiss(animated: true)
+        })
+        alert.addAction(UIAlertAction(title: "Отмена", style: .destructive))
+        self.present(alert, animated: true)
     }
 }

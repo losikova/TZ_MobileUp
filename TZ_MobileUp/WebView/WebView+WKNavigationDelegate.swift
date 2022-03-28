@@ -49,7 +49,7 @@ extension WebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         let message: String = error.localizedDescription
 
-        if message == "Frame load interrupted" { return }
+//        if message == "Frame load interrupted" { return }
         
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default) {[weak self] action in

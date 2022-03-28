@@ -37,6 +37,7 @@ extension LoginViewController: OpenWebViewProtocol {
     func openWebView(_ controller: WebViewController) {
         let controller = WebViewController()
         controller.modalPresentationStyle = .popover
+        controller.presentationController?.delegate = controller
         controller.delegate = self
         
         present(controller, animated: true)
@@ -47,9 +48,7 @@ extension LoginViewController: WebViewControllerClosedProtocol {
     func webViewDidDisapper(withAuth: Bool) {
         if withAuth {
             openGallery()
-        } else {
-            presentAlert()
-        }
+        } 
     }
     
     func openGallery() {
@@ -57,11 +56,6 @@ extension LoginViewController: WebViewControllerClosedProtocol {
         navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: true, completion: nil)
     }
-    
-    func presentAlert() {
-        let alert = UIAlertController(title: "Warning", message: "Вы вышли из авторизации VK", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default))
-        self.present(alert, animated: true)
-    }
 }
+
 

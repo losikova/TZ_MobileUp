@@ -10,6 +10,7 @@ import UIKit
 class PhotoViewController: UIViewController {
 
     @IBOutlet weak var mainPhotoCollectionView: UICollectionView!
+    @IBOutlet weak var bottomPhotoCollectionView: UICollectionView!
     
     var photos = [Photo]()
     var selectedIndex = IndexPath()
@@ -22,11 +23,15 @@ class PhotoViewController: UIViewController {
         super.viewDidLoad()
         
         mainPhotoCollectionView.register(GalleryCollectionViewCell.self, forCellWithReuseIdentifier: GalleryCollectionViewCell.galleryCellIdentifier)
+//        bottomPhotoCollectionView.register(GalleryCollectionViewCell.self, forCellWithReuseIdentifier: GalleryCollectionViewCell.galleryCellIdentifier)
         
         mainPhotoCollectionView.delegate = self
         mainPhotoCollectionView.dataSource = self
+//        bottomPhotoCollectionView.delegate = self
+//        bottomPhotoCollectionView.dataSource = self
         
         mainPhotoCollectionView.scrollToItem(at: selectedIndex, at: .centeredHorizontally, animated: false)
+//        bottomPhotoCollectionView.scrollToItem(at: selectedIndex, at: .centeredHorizontally, animated: false)
         
         setupUI()
     }
@@ -46,12 +51,18 @@ class PhotoViewController: UIViewController {
         share.width = 15.5
         navigationItem.rightBarButtonItem = share
         
+        
+//        /// Gesture Recognizer
+//        let swipeGesture = UIPanGestureRecognizer(target: self, action: #selector(swipe(_:)))
+//        mainPhotoCollectionView.addGestureRecognizer(swipeGesture)
     }
     
     @objc func shareTapped() {
- 
-        let image = getImage(at: selectedIndex)
-        
+        var image = UIImage()
+        DispatchQueue.main.async {[weak self] in
+            guard let self = self else { return }
+            image = self.getImage(at: self.selectedIndex, size: "w")
+        }
         let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         
         activityViewController.excludedActivityTypes = [
@@ -63,10 +74,20 @@ class PhotoViewController: UIViewController {
         
         activityViewController.isModalInPresentation = true
         self.present(activityViewController, animated: true, completion: nil)
-        
     }
     
-    func getImage(at index: IndexPath) -> UIImage {
+    @objc func swipe(_ sender: UIPanGestureRecognizer) {
+        
+//        if sender.state == .ended {
+//            mainPhotoCollectionView.scrollToItem(at: selectedIndex, at: .centeredHorizontally, animated: false)
+        //        }
+        //
+        //        if sender.state == .began {
+        //            mainPhotoCollectionView.isUserInteractionEnabled = true
+        //        }
+    }
+    
+    func getImage(at index: IndexPath, size: String) -> UIImage {
         var returnImage = UIImage()
         for photoSize in photos[index.item].sizes where photoSize.type == "w" {
             
@@ -90,8 +111,10 @@ extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = mainPhotoCollectionView.dequeueReusableCell(withReuseIdentifier: GalleryCollectionViewCell.galleryCellIdentifier, for: indexPath) as! GalleryCollectionViewCell
         
-        cell.photoImageView.image = getImage(at: indexPath)
-
+        DispatchQueue.main.async {[weak self] in
+            cell.photoImageView.image = self?.getImage(at: indexPath, size: "w")
+        }
+        
         let timeInterval = TimeInterval(photos[indexPath.item].date)
         let date = Date(timeIntervalSince1970: timeInterval)
 

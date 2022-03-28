@@ -133,8 +133,8 @@
 		B2D555E227EF9D2D00D00E68 /* Gallary */ = {
 			isa = PBXGroup;
 			children = (
-				B2D555E327EF9DBC00D00E68 /* GalleryViewController.swift */,
 				B2D555E527EFC26900D00E68 /* GalleryCollectionViewCell.swift */,
+				B2D555E327EF9DBC00D00E68 /* GalleryViewController.swift */,
 			);
 			path = Gallary;
 			sourceTree = "<group>";

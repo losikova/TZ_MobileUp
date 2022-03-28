@@ -37,7 +37,6 @@ class Service {
             
             do {
                 let photos = try JSONDecoder().decode(PhotoResponse.self, from: data).response.items
-                print(photos)
                 DispatchQueue.main.async {
                     completion(photos)
                 }
