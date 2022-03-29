@@ -8,7 +8,6 @@
 import UIKit
 
 class LoadingView: UIView {
-    
     enum Animate {
         case start
         case stop

@@ -12,6 +12,7 @@ class PhotoViewController: UIViewController {
     @IBOutlet weak var mainPhotoView: UIImageView!
     @IBOutlet weak var bottomPhotoCollectionView: UICollectionView!
     
+    /// - parameter photos: Array of photo info
     var photos = [Photo]()
     var selectedIndex = IndexPath()
     
@@ -79,12 +80,12 @@ class PhotoViewController: UIViewController {
         let date = Date(timeIntervalSince1970: timeInterval)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "d MMMM yyyy"
-//        dateFormatter.locale = Locale(identifier: "ru_RU")
         titleView.text = dateFormatter.string(from: date)
     }
     
     @objc func shareTapped() {
-        let image = self.getImage(at: self.selectedIndex, size: "w")
+        
+        let image = getImage(at: selectedIndex, size: "w")
         
         let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         
@@ -93,10 +94,12 @@ class PhotoViewController: UIViewController {
                 self.errorAlert(type: ApplicationErrors.photoSaveError)
             }
             
-            if activity == .saveToCameraRoll {
+            if bool && activity == .saveToCameraRoll {
+                
                 let alert = UIAlertController(title: "", message: NSLocalizedString("Photo saved successfully", comment: ""), preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default))
                 self.present(alert, animated: true)
+                
             }
         }
         

@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// - parameter StringKeys: Keys for UserDefaults and Keychain
 enum StringKeys: String {
     case accessToken = "accessToken"
     case userID = "userID"

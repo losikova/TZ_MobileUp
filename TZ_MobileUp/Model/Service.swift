@@ -23,12 +23,20 @@ class Service {
             URLQueryItem(name: "v", value: "5.131")
         ]
         
-        guard let url = urlComponents.url else { return }
+        guard let url = urlComponents.url else {
+            errorService(description: ApplicationErrors.requestError.rawValue,
+                         completion: errorCompletion)
+            return
+        }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
         let urlSession = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data else { return }
+            guard let data = data else {
+                self.errorService(description: ApplicationErrors.dataError.rawValue,
+                             completion: errorCompletion)
+                return
+            }
             
             do {
                 let photos = try JSONDecoder().decode(PhotoResponse.self, from: data).response.items

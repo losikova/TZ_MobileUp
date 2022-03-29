@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// - parameter ApplicationErrors: Custom errors messages 
 enum ApplicationErrors: String {
     case dataError = "Data loading error"
     case requestError = "Network request failed"

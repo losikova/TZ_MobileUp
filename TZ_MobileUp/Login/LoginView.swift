@@ -40,7 +40,6 @@ class LoginView: UIView {
     
     private func setupUI() {
         
-        
         /// Mobile Up Label
         addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false

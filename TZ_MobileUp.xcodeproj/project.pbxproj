@@ -68,6 +68,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B266FBAB27F3B804008D2D55 /* Additional */ = {
+			isa = PBXGroup;
+			children = (
+				B2D555E027EF994600D00E68 /* Constants.swift */,
+				B2D26B9227F27890002D44F3 /* ErrorProcessing.swift */,
+				B2F51B0327F38C5500A306D7 /* LoadingView.swift */,
+			);
+			path = Additional;
+			sourceTree = "<group>";
+		};
+		B266FBAC27F3B849008D2D55 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B2A8C62027EE388700EA675D /* Assets.xcassets */,
+				B266FBA927F3A5F5008D2D55 /* Localizable.strings */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		B28B0BD627EF60FA00B3830B /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,20 +115,17 @@
 		B2A8C61327EE388400EA675D /* TZ_MobileUp */ = {
 			isa = PBXGroup;
 			children = (
-				B2D555E027EF994600D00E68 /* Constants.swift */,
-				B2D26B9227F27890002D44F3 /* ErrorProcessing.swift */,
-				B2F51B0327F38C5500A306D7 /* LoadingView.swift */,
+				B2A8C61427EE388400EA675D /* AppDelegate.swift */,
+				B266FBAB27F3B804008D2D55 /* Additional */,
 				B2D555F327F063E000D00E68 /* Model */,
 				B2D555D827EF8FF100D00E68 /* WebView */,
 				B28B0BD627EF60FA00B3830B /* Login */,
 				B2D555E227EF9D2D00D00E68 /* Gallary */,
 				B2D5560227F099A700D00E68 /* Photo Viewing */,
+				B266FBAC27F3B849008D2D55 /* Settings */,
 				B2D555D327EF8E1800D00E68 /* Fonts */,
-				B2A8C61427EE388400EA675D /* AppDelegate.swift */,
-				B2A8C62027EE388700EA675D /* Assets.xcassets */,
 				B2A8C62227EE388700EA675D /* LaunchScreen.storyboard */,
 				B2A8C62527EE388700EA675D /* Info.plist */,
-				B266FBA927F3A5F5008D2D55 /* Localizable.strings */,
 			);
 			path = TZ_MobileUp;
 			sourceTree = "<group>";
