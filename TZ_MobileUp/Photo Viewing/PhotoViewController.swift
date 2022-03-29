@@ -33,6 +33,17 @@ class PhotoViewController: UIViewController {
         setupUI()
     }
     
+    @IBAction func handlePinch(_ sender: UIPinchGestureRecognizer) {
+        if sender.state == UIGestureRecognizer.State.changed {
+            let transform = CGAffineTransform(scaleX: sender.scale, y: sender.scale)
+            mainPhotoView.transform = transform
+        }
+        
+        if sender.state == UIGestureRecognizer.State.ended {
+            mainPhotoView.transform = .identity
+        }
+    }
+    
     private func setupUI() {
         mainPhotoView.addSubview(loadingView)
         loadingView.translatesAutoresizingMaskIntoConstraints = false

@@ -34,11 +34,15 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E3n-uT-eIB">
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E3n-uT-eIB">
                     <rect key="frame" x="0.0" y="241" width="414" height="414"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="E3n-uT-eIB" secondAttribute="height" multiplier="1:1" id="PNS-w0-RsH"/>
                     </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="xRs-Cq-UK9" appends="YES" id="xLp-5z-OYu"/>
+                    </connections>
                 </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -53,6 +57,11 @@
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="92.410714285714278"/>
         </view>
+        <pinchGestureRecognizer id="xRs-Cq-UK9">
+            <connections>
+                <action selector="handlePinch:" destination="-1" id="NJ6-SW-tOL"/>
+            </connections>
+        </pinchGestureRecognizer>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
