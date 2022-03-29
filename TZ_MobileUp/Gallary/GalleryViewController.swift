@@ -70,7 +70,7 @@ class GalleryViewController: UIViewController {
         navigationItem.titleView?.heightAnchor.constraint(equalToConstant: 21).isActive = true
         
         let buttonLabel = UILabel()
-        buttonLabel.text = NSLocalizedString("Cancel", comment: "")
+        buttonLabel.text = NSLocalizedString("Log out", comment: "")
         buttonLabel.font = UIFont(name: "SFProDisplay-Medium", size: 18)
         buttonLabel.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(exitButtonTapped))
@@ -85,7 +85,7 @@ class GalleryViewController: UIViewController {
     
     @objc private func exitButtonTapped() {
         let alert = UIAlertController(title: "", message: NSLocalizedString("Are you sure you want to log out of your account?", comment: ""), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default) {[weak self] _ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .destructive) {[weak self] _ in
             KeychainWrapper.standard.removeObject(forKey: StringKeys.accessToken.rawValue)
             UserDefaults.standard.set(false, forKey: StringKeys.isAuthorized.rawValue)
             
@@ -95,7 +95,7 @@ class GalleryViewController: UIViewController {
             self?.dismiss(animated: false)
         })
         
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default))
         self.present(alert, animated: true)
     }
 }
