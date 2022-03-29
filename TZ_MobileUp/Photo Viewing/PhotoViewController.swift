@@ -16,27 +16,37 @@ class PhotoViewController: UIViewController {
     var selectedIndex = IndexPath()
     
     let titleView = UILabel()
+    let loadingView = LoadingView()
     
     var photoImages = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        mainPhotoCollectionView.register(GalleryCollectionViewCell.self, forCellWithReuseIdentifier: GalleryCollectionViewCell.galleryCellIdentifier)
 //        bottomPhotoCollectionView.register(GalleryCollectionViewCell.self, forCellWithReuseIdentifier: GalleryCollectionViewCell.galleryCellIdentifier)
         
-//        mainPhotoCollectionView.delegate = self
-//        mainPhotoCollectionView.dataSource = self
 //        bottomPhotoCollectionView.delegate = self
 //        bottomPhotoCollectionView.dataSource = self
         
-//        mainPhotoCollectionView.scrollToItem(at: selectedIndex, at: .centeredHorizontally, animated: false)
 //        bottomPhotoCollectionView.scrollToItem(at: selectedIndex, at: .centeredHorizontally, animated: false)
         
         setupUI()
     }
     
     private func setupUI() {
+        mainPhotoView.addSubview(loadingView)
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            loadingView.topAnchor.constraint(equalTo: mainPhotoView.topAnchor),
+            loadingView.leftAnchor.constraint(equalTo: mainPhotoView.leftAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: mainPhotoView.bottomAnchor),
+            loadingView.rightAnchor.constraint(equalTo: mainPhotoView.rightAnchor)
+        ])
+        loadingView.clipsToBounds = true
+        loadingView.contentMode = .scaleAspectFill
+        loadingView.backgroundColor = #colorLiteral(red: 0.9591494203, green: 0.9724681973, blue: 0.9908661246, alpha: 1)
+        loadingView.animateLoading(.start)
+        
         /// Title in navigation
         titleView.translatesAutoresizingMaskIntoConstraints = false
         titleView.font = UIFont(name: "SFProDisplay-Semibold", size: 18)
@@ -59,10 +69,6 @@ class PhotoViewController: UIViewController {
         dateFormatter.dateFormat = "d MMMM yyyy"
         dateFormatter.locale = Locale(identifier: "ru_RU")
         titleView.text = dateFormatter.string(from: date)
-        
-        //        /// Gesture Recognizer
-        //        let swipeGesture = UIPanGestureRecognizer(target: self, action: #selector(swipe(_:)))
-        //        mainPhotoCollectionView.addGestureRecognizer(swipeGesture)
     }
     
     @objc func shareTapped() {
@@ -86,17 +92,6 @@ class PhotoViewController: UIViewController {
         self.present(activityViewController, animated: true, completion: nil)
     }
     
-    @objc func swipe(_ sender: UIPanGestureRecognizer) {
-        
-        //        if sender.state == .ended {
-        //            mainPhotoCollectionView.scrollToItem(at: selectedIndex, at: .centeredHorizontally, animated: false)
-        //        }
-        //
-        //        if sender.state == .began {
-        //            mainPhotoCollectionView.isUserInteractionEnabled = true
-        //        }
-    }
-    
     func getImage(at index: IndexPath, size: String) -> UIImage {
         var returnImage = UIImage()
         for photoSize in photos[index.item].sizes where photoSize.type == size {
@@ -109,6 +104,7 @@ class PhotoViewController: UIViewController {
             }
             returnImage = image
         }
+        loadingView.animateLoading(.stop)
         return returnImage
     }
 }
