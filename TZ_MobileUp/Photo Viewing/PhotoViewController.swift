@@ -8,8 +8,7 @@
 import UIKit
 
 class PhotoViewController: UIViewController {
-
-   
+    
     @IBOutlet weak var mainPhotoView: UIImageView!
     @IBOutlet weak var bottomPhotoCollectionView: UICollectionView!
     
@@ -74,7 +73,6 @@ class PhotoViewController: UIViewController {
         activityViewController.completionWithItemsHandler =  { activity, bool, _, error in
             if let _ = error {
                 self.errorAlert(type: ApplicationErrors.photoSaveError)
-                return
             }
             
             if activity == .saveToCameraRoll {

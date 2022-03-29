@@ -108,6 +108,7 @@ extension GalleryViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = galleryCollectionView.dequeueReusableCell(withReuseIdentifier: GalleryCollectionViewCell.galleryCellIdentifier, for: indexPath) as! GalleryCollectionViewCell
         
+        
         DispatchQueue.main.async { [weak self] in
             guard let photosArray = self?.photosArray else { return }
             for photoSize in photosArray[indexPath.item].sizes where photoSize.type == "q" {
@@ -121,6 +122,7 @@ extension GalleryViewController: UICollectionViewDelegate, UICollectionViewDataS
                     
                     self?.photos[photoSize.url] = image
                 }
+                cell.loadingView.animateLoading(.stop)
                 cell.photoImageView.image = self?.photos[photoSize.url]
             }
         }
