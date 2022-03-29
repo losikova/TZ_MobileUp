@@ -23,12 +23,12 @@ class PhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        bottomPhotoCollectionView.register(GalleryCollectionViewCell.self, forCellWithReuseIdentifier: GalleryCollectionViewCell.galleryCellIdentifier)
+        bottomPhotoCollectionView.register(GalleryCollectionViewCell.self, forCellWithReuseIdentifier: GalleryCollectionViewCell.galleryCellIdentifier)
         
-//        bottomPhotoCollectionView.delegate = self
-//        bottomPhotoCollectionView.dataSource = self
+        bottomPhotoCollectionView.delegate = self
+        bottomPhotoCollectionView.dataSource = self
         
-//        bottomPhotoCollectionView.scrollToItem(at: selectedIndex, at: .centeredHorizontally, animated: false)
+        bottomPhotoCollectionView.scrollToItem(at: selectedIndex, at: .centeredHorizontally, animated: false)
         
         setupUI()
     }
@@ -120,32 +120,40 @@ class PhotoViewController: UIViewController {
     }
 }
 
-//extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        photos.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = mainPhotoCollectionView.dequeueReusableCell(withReuseIdentifier: GalleryCollectionViewCell.galleryCellIdentifier, for: indexPath) as! GalleryCollectionViewCell
-//
-//        DispatchQueue.main.async {[weak self] in
-//            cell.photoImageView.image = self?.getImage(at: indexPath, size: "w")
-//        }
-//
-//        let timeInterval = TimeInterval(photos[indexPath.item].date)
-//        let date = Date(timeIntervalSince1970: timeInterval)
-//
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "d MMMM yyyy"
-//        titleView.text = dateFormatter.string(from: date)
-//        selectedIndex = indexPath
-//        return cell
-//    }
-//}
-//
-//extension PhotoViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let width = mainPhotoView.bounds.width
-//        return CGSize(width: width, height: width)
-//    }
-//}
+extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        photos.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = bottomPhotoCollectionView.dequeueReusableCell(withReuseIdentifier: GalleryCollectionViewCell.galleryCellIdentifier, for: indexPath) as! GalleryCollectionViewCell
+
+        cell.loadingView.animateLoading(.stop)
+        DispatchQueue.main.async {[weak self] in
+            cell.photoImageView.image = self?.getImage(at: indexPath, size: "m")
+        }
+        
+        selectedIndex = indexPath
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        mainPhotoView.image = nil
+        loadingView.animateLoading(.start)
+        DispatchQueue.main.async {[weak self] in
+            self?.mainPhotoView.image = self?.getImage(at: indexPath, size: "w")
+            self?.loadingView.animateLoading(.stop)
+        }
+    }
+}
+
+extension PhotoViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let height = bottomPhotoCollectionView.bounds.height
+        return CGSize(width: height, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        2
+    }
+}

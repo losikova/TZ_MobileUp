@@ -83,6 +83,7 @@ class LoadingView: UIView {
         
         switch animate {
         case .start:
+            self.isHidden = false
             self.subviews[1].layer.add(animation, forKey: nil)
             animation.beginTime = CACurrentMediaTime() + 0.1
             self.subviews[0].layer.add(animation, forKey: nil)
