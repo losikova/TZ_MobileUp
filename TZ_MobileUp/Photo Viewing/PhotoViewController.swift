@@ -136,13 +136,12 @@ extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSou
         DispatchQueue.main.async {[weak self] in
             cell.photoImageView.image = self?.getImage(at: indexPath, size: "m")
         }
-        
-        selectedIndex = indexPath
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         mainPhotoView.image = nil
+        selectedIndex = indexPath
         loadingView.animateLoading(.start)
         DispatchQueue.main.async {[weak self] in
             self?.mainPhotoView.image = self?.getImage(at: indexPath, size: "w")
