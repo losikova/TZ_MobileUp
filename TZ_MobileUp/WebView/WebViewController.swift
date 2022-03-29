@@ -49,7 +49,7 @@ class WebViewController: UIViewController {
         ]
         
         guard let url = urlComponents.url else {
-            //error
+            errorAlert(type: ApplicationErrors.requestError)
             return
         }
         

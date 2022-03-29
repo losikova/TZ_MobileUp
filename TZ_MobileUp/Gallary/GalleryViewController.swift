@@ -38,6 +38,8 @@ class GalleryViewController: UIViewController {
                 self?.photosArray.append(photo)
             }
             self?.galleryCollectionView.reloadData()
+        } errorCompletion: { [weak self] errorDescription in
+            self?.errorAlertWithDescription(errorDescription)
         }
         
         galleryCollectionView.register(GalleryCollectionViewCell.self, forCellWithReuseIdentifier: GalleryCollectionViewCell.galleryCellIdentifier)
@@ -113,7 +115,7 @@ extension GalleryViewController: UICollectionViewDelegate, UICollectionViewDataS
                     guard let url = URL(string: photoSize.url),
                           let imageData = try? Data(contentsOf: url),
                           let image = UIImage(data: imageData) else {
-                        //error
+                        self?.errorAlert(type: ApplicationErrors.dataError)
                         continue
                     }
                     

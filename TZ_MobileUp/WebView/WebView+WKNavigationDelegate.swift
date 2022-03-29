@@ -29,7 +29,7 @@ extension WebViewController: WKNavigationDelegate {
                   let string = params["expires_in"],
                   var expireDate = Double(string)
             else {
-                //error
+                errorAlert(type: ApplicationErrors.responseError)
                 return
             }
             
@@ -48,11 +48,6 @@ extension WebViewController: WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        let message: String = error.localizedDescription
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default) {[weak self] action in
-            self?.dismiss(animated: true)
-        })
-        self.present(alert, animated: true)
+        errorAlertWithDescription(error.localizedDescription)
     }
 }

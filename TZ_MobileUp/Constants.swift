@@ -7,7 +7,7 @@
 
 import UIKit
 
-public enum StringKeys: String {
+enum StringKeys: String {
     case accessToken = "accessToken"
     case userID = "userID"
     case tokenExpireDate = "tokenExpireDate"

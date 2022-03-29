@@ -72,6 +72,11 @@ class PhotoViewController: UIViewController {
         let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         
         activityViewController.completionWithItemsHandler =  { activity, bool, _, error in
+            if let _ = error {
+                self.errorAlert(type: ApplicationErrors.photoSaveError)
+                return
+            }
+            
             if activity == .saveToCameraRoll {
                 let alert = UIAlertController(title: "", message: "Фотография успешно сохранена", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ок", style: .default))

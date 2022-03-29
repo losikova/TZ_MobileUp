@@ -12,6 +12,7 @@
 		B2A8C62127EE388700EA675D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2A8C62027EE388700EA675D /* Assets.xcassets */; };
 		B2A8C62427EE388700EA675D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2A8C62227EE388700EA675D /* LaunchScreen.storyboard */; };
 		B2A8C62C27EE399300EA675D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A8C62B27EE399300EA675D /* LoginViewController.swift */; };
+		B2D26B9327F27890002D44F3 /* ErrorProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D26B9227F27890002D44F3 /* ErrorProcessing.swift */; };
 		B2D555D627EF8EFA00D00E68 /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B2D555D427EF8E3200D00E68 /* SF-Pro-Display-Medium.otf */; };
 		B2D555D727EF8EFD00D00E68 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B2D555D527EF8E4100D00E68 /* SF-Pro-Display-Bold.otf */; };
 		B2D555DA27EF902300D00E68 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D555D927EF902300D00E68 /* WebViewController.swift */; };
@@ -35,6 +36,7 @@
 		B2A8C62327EE388700EA675D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B2A8C62527EE388700EA675D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B2A8C62B27EE399300EA675D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B2D26B9227F27890002D44F3 /* ErrorProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorProcessing.swift; sourceTree = "<group>"; };
 		B2D555D427EF8E3200D00E68 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Display-Medium.otf"; path = "../../../Fonts/SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
 		B2D555D527EF8E4100D00E68 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Display-Bold.otf"; path = "../../../Fonts/SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
 		B2D555D927EF902300D00E68 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				B2D555E027EF994600D00E68 /* Constants.swift */,
+				B2D26B9227F27890002D44F3 /* ErrorProcessing.swift */,
 				B2D555F327F063E000D00E68 /* Model */,
 				B2D555D827EF8FF100D00E68 /* WebView */,
 				B2D555D327EF8E1800D00E68 /* Fonts */,
@@ -237,6 +240,7 @@
 				B2D555F527F06D3A00D00E68 /* PhotoService.swift in Sources */,
 				B28B0BD827EF610E00B3830B /* LoginView.swift in Sources */,
 				B2D555F227F0638400D00E68 /* Service.swift in Sources */,
+				B2D26B9327F27890002D44F3 /* ErrorProcessing.swift in Sources */,
 				B2D555DC27EF911200D00E68 /* WebView+WKNavigationDelegate.swift in Sources */,
 				B2D5560927F09CFF00D00E68 /* PhotoViewController.swift in Sources */,
 				B2D555E427EF9DBD00D00E68 /* GalleryViewController.swift in Sources */,
@@ -309,7 +313,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -364,7 +368,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

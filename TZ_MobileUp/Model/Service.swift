@@ -9,7 +9,8 @@ import UIKit
 import SwiftKeychainWrapper
 
 class Service {
-    func getPhotos(completion: @escaping ([Photo]) -> Void) {
+    
+    func getPhotos(completion: @escaping ([Photo]) -> Void, errorCompletion: @escaping (String) -> ()) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -22,18 +23,12 @@ class Service {
             URLQueryItem(name: "v", value: "5.131")
         ]
         
-        guard let url = urlComponents.url else {
-            //error
-            return
-        }
+        guard let url = urlComponents.url else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
         let urlSession = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data else {
-                //error
-                return
-            }
+            guard let data = data else { return }
             
             do {
                 let photos = try JSONDecoder().decode(PhotoResponse.self, from: data).response.items
@@ -41,9 +36,15 @@ class Service {
                     completion(photos)
                 }
             } catch {
-                print(error)
+                self.errorService(description: error.localizedDescription, completion: errorCompletion)
             }
         }
         urlSession.resume()
+    }
+    
+    func errorService(description: String, completion: @escaping (String) -> ()) {
+        DispatchQueue.main.async {
+            completion(description)
+        }
     }
 }
