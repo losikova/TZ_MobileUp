@@ -106,7 +106,7 @@ class PhotoViewController: UIViewController {
             guard let url = URL(string: photoSize.url),
                   let imageData = try? Data(contentsOf: url),
                   let image = UIImage(data: imageData) else {
-                //error
+                errorAlert(type: ApplicationErrors.dataError)
                 continue
             }
             returnImage = image

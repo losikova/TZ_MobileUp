@@ -8,7 +8,7 @@
 import UIKit
 
 enum ApplicationErrors: String {
-    case dataError = "Ошибка данных"
+    case dataError = "Ошибка загрузки данных"
     case requestError = "Ошибка запроса из сети"
     case responseError = "Некорректный ответ сервера"
     case photoSaveError = "Ошибка сохранения фотографии"
