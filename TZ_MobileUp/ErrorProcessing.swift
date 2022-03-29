@@ -8,10 +8,14 @@
 import UIKit
 
 enum ApplicationErrors: String {
-    case dataError = "Ошибка загрузки данных"
-    case requestError = "Ошибка запроса из сети"
-    case responseError = "Некорректный ответ сервера"
-    case photoSaveError = "Ошибка сохранения фотографии"
+    case dataError = "Data loading error"
+    case requestError = "Network request failed"
+    case responseError = "Incorrect server response"
+    case photoSaveError = "Photo saving error"
+    
+    func localizedString() -> String {
+        return NSLocalizedString(self.rawValue, comment: "")
+    }
 }
 
 extension UIViewController {

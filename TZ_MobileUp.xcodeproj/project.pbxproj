@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B266FBA727F3A5F5008D2D55 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B266FBA927F3A5F5008D2D55 /* Localizable.strings */; };
 		B28B0BD827EF610E00B3830B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28B0BD727EF610E00B3830B /* LoginView.swift */; };
 		B2A8C61527EE388400EA675D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A8C61427EE388400EA675D /* AppDelegate.swift */; };
 		B2A8C62127EE388700EA675D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2A8C62027EE388700EA675D /* Assets.xcassets */; };
@@ -30,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B266FBA827F3A5F5008D2D55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B266FBAA27F3A724008D2D55 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B28B0BD727EF610E00B3830B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B2A8C61127EE388400EA675D /* TZ_MobileUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TZ_MobileUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2A8C61427EE388400EA675D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +109,7 @@
 				B2A8C62027EE388700EA675D /* Assets.xcassets */,
 				B2A8C62227EE388700EA675D /* LaunchScreen.storyboard */,
 				B2A8C62527EE388700EA675D /* Info.plist */,
+				B266FBA927F3A5F5008D2D55 /* Localizable.strings */,
 			);
 			path = TZ_MobileUp;
 			sourceTree = "<group>";
@@ -201,6 +205,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = B2A8C60827EE388400EA675D;
 			packageReferences = (
@@ -223,6 +228,7 @@
 				B2D555D627EF8EFA00D00E68 /* SF-Pro-Display-Medium.otf in Resources */,
 				B2A8C62427EE388700EA675D /* LaunchScreen.storyboard in Resources */,
 				B2D555E827EFD21000D00E68 /* SF-Pro-Display-Semibold.otf in Resources */,
+				B266FBA727F3A5F5008D2D55 /* Localizable.strings in Resources */,
 				B2D5560A27F09CFF00D00E68 /* PhotoViewController.xib in Resources */,
 				B2D555D727EF8EFD00D00E68 /* SF-Pro-Display-Bold.otf in Resources */,
 				B2A8C62127EE388700EA675D /* Assets.xcassets in Resources */,
@@ -255,6 +261,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		B266FBA927F3A5F5008D2D55 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B266FBA827F3A5F5008D2D55 /* en */,
+				B266FBAA27F3A724008D2D55 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		B2A8C62227EE388700EA675D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -270,6 +285,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -331,6 +347,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -392,6 +409,7 @@
 				DEVELOPMENT_TEAM = V39395A3DV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TZ_MobileUp/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Для возможности сохранения фотографий";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -422,11 +440,13 @@
 				DEVELOPMENT_TEAM = V39395A3DV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TZ_MobileUp/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Для возможности сохранения фотографий";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

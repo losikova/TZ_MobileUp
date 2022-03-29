@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  TZ_MobileUp
+
+  Created by Анастасия Лосикова on 3/29/22.
+  
+*/
+
+"Login via VK" = "Вход через VK";
+"Data loading error" = "Ошибка загрузки данных";
+"Network request failed" = "Ошибка запроса из сети";
+"Incorrect server response" = "Некорректный ответ сервера";
+"Photo saving error" = "Ошибка сохранения фотографии";
+"Log out from VK autorization?" = "Выйти из авторизации через VK?";
+"Log out" = "Выйти";
+"Cancel" = "Отмена";
+"Are you sure you want to log out of your account?" = "Вы уверены, что хотите выйти из аккаунта?";
+"Yes" = "Да";
+"Photo saved successfully" = "Фотография успешно сохранена";
+"Ok" = "Ок";

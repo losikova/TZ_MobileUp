@@ -39,7 +39,7 @@ class WebViewController: UIViewController {
         urlComponents.host = "oauth.vk.com"
         urlComponents.path = "/authorize"
         urlComponents.queryItems = [
-            URLQueryItem(name: "client_id", value: "8089981"),
+            URLQueryItem(name: "client_id", value: "8120413"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
             URLQueryItem(name: "scope", value: "wall"),
@@ -60,11 +60,11 @@ class WebViewController: UIViewController {
 
 extension WebViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
-        let alert = UIAlertController(title: "", message: "Выйти из авторизации через VK?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Выйти", style: .destructive) { _ in
+        let alert = UIAlertController(title: "", message: NSLocalizedString("Log out from VK autorization?", comment: ""), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Log out", comment: ""), style: .destructive) { _ in
             self.dismiss(animated: true)
         })
-        alert.addAction(UIAlertAction(title: "Отмена", style: .default))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default))
         self.present(alert, animated: true)
     }
 }

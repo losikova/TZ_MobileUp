@@ -28,6 +28,7 @@ class PhotoViewController: UIViewController {
         bottomPhotoCollectionView.delegate = self
         bottomPhotoCollectionView.dataSource = self
         
+        // FIXME: Не работает на физическом iphone 8 
         bottomPhotoCollectionView.scrollToItem(at: selectedIndex, at: .centeredHorizontally, animated: false)
         
         setupUI()
@@ -78,7 +79,7 @@ class PhotoViewController: UIViewController {
         let date = Date(timeIntervalSince1970: timeInterval)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "d MMMM yyyy"
-        dateFormatter.locale = Locale(identifier: "ru_RU")
+//        dateFormatter.locale = Locale(identifier: "ru_RU")
         titleView.text = dateFormatter.string(from: date)
     }
     
@@ -93,8 +94,8 @@ class PhotoViewController: UIViewController {
             }
             
             if activity == .saveToCameraRoll {
-                let alert = UIAlertController(title: "", message: "Фотография успешно сохранена", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ок", style: .default))
+                let alert = UIAlertController(title: "", message: NSLocalizedString("Photo saved successfully", comment: ""), preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .default))
                 self.present(alert, animated: true)
             }
         }

@@ -47,7 +47,6 @@ class LoginView: UIView {
         label.clipsToBounds = true
         NSLayoutConstraint.activate([
             label.widthAnchor.constraint(equalToConstant: 327),
-        // FIXME: Высота 114 не влезает со шрифтом 48
             label.heightAnchor.constraint(equalToConstant: 115),
             label.topAnchor.constraint(equalTo: self.topAnchor, constant: 164),
             label.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 24)
@@ -91,7 +90,7 @@ class LoginView: UIView {
             buttonTitle.centerXAnchor.constraint(equalTo: loginButton.centerXAnchor),
             buttonTitle.centerYAnchor.constraint(equalTo: loginButton.centerYAnchor)
         ])
-        buttonTitle.text = "Вход через VK"
+        buttonTitle.text = NSLocalizedString("Login via VK", comment: "")
         buttonTitle.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
         buttonTitle.font = UIFont(name: "SFProDisplay-Medium", size: 18)
         buttonTitle.textAlignment = .center
