@@ -13,22 +13,18 @@ enum ApplicationErrors: String {
     case requestError = "Network request failed"
     case responseError = "Incorrect server response"
     case photoSaveError = "Photo saving error"
-    
-    func localizedString() -> String {
-        return NSLocalizedString(self.rawValue, comment: "")
-    }
 }
 
 extension UIViewController {
     
     func errorAlert(type: ApplicationErrors) {
-        let alert = UIAlertController(title: "Error", message: type.rawValue, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error", message: NSLocalizedString(type.rawValue, comment: ""), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ок", style: .default))
         present(alert, animated: true)
     }
     
     func errorAlertWithDescription(_ description: String) {
-        let alert = UIAlertController(title: "Error", message: description, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error", message: NSLocalizedString(description, comment: ""), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ок", style: .default))
         present(alert, animated: true)
     }
