@@ -79,8 +79,6 @@ class GalleryViewController: UIViewController {
         let exitButton = UIBarButtonItem()
         exitButton.customView = buttonLabel
         navigationItem.rightBarButtonItem = exitButton
-        
-        
     }
     
     @objc private func exitButtonTapped() {
