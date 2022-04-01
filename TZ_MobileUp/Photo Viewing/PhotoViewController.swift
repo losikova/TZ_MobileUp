@@ -76,11 +76,8 @@ class PhotoViewController: UIViewController {
         
         mainPhotoView.image = getImage(at: selectedIndex, size: "w")
         
-        let timeInterval = TimeInterval(photos[selectedIndex.item].date)
-        let date = Date(timeIntervalSince1970: timeInterval)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d MMMM yyyy"
-        titleView.text = dateFormatter.string(from: date)
+        
+        titleView.text = dateForHeader(index: selectedIndex)
     }
     
     @objc func shareTapped() {
@@ -122,6 +119,14 @@ class PhotoViewController: UIViewController {
         loadingView.animateLoading(.stop)
         return returnImage
     }
+    
+    func dateForHeader(index: IndexPath) -> String {
+        let timeInterval = TimeInterval(photos[index.item].date)
+        let date = Date(timeIntervalSince1970: timeInterval)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMMM yyyy"
+        return dateFormatter.string(from: date)
+    }
 }
 
 extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -144,6 +149,7 @@ extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSou
         selectedIndex = indexPath
         loadingView.animateLoading(.start)
         DispatchQueue.main.async {[weak self] in
+            self?.titleView.text = self?.dateForHeader(index: indexPath)
             self?.mainPhotoView.image = self?.getImage(at: indexPath, size: "w")
             self?.loadingView.animateLoading(.stop)
         }
